@@ -1,0 +1,10 @@
+*
+!*/
+!.*
+!*.md
+!*.bst
+!*.sty
+!*.tex
+!*.bib
+!*/*.pdf
+!google-scholar.pdf

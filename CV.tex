@@ -1,0 +1,173 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[left=1cm,right=1cm,top=1.5cm,bottom=1cm]{geometry}
+%\geometry{marginparwidth=6.8cm,marginparsep=1.2cm,footskip=2\baselineskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{fontawesome}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{etoolbox}
+
+\usepackage[square,numbers,compress,sort]{natbib}
+\bibliographystyle{IEEEtranN}
+\usepackage{multibib}
+\newcites{q}{References}
+\usepackage{bibentry}
+\nobibliography*
+\usepackage{titlesec}
+\titleformat{\subsection}{\fontsize{13pt}{14pt}\color{darkelectricblue}\bfseries\ttfamily}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{0pt}{2pt}
+%\usepackage[backend=biber, style=ieee, citestyle=ieee, sorting=ynt]{biblatex}
+%\addbibresource{mybib.bib}
+%\DeclareFieldFormat{labelnumberwidth}{}
+%\setlength{\biblabelsep}{0pt}
+%\setlength\bibitemsep{\baselineskip}
+%\newcommand*{\makebibcategory}[2]{\DeclareBibliographyCategory{#1}\defbibheading{#1}[#2]{\subsection*{#2}}}
+%\makebibcategory{2019}{{\fontsize{12pt}{12pt}\ttfamily 2019}}
+%\makebibcategory{2020}{{\fontsize{12pt}{12pt}\ttfamily 2020}}
+%\newcommand*{\printbib}[1]{\printbibliography[sorting=chronological,category=#1,heading=#1]}
+
+\usepackage{xcolor}
+\definecolor{oraclecolor}{HTML}{8B8589}
+\definecolor{rulecolor}{HTML}{DCDCDC}
+\definecolor{ashgrey}{rgb}{0.7, 0.75, 0.71}
+\definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}
+\definecolor{aurometalsaurus}{rgb}{0.43, 0.5, 0.5}
+\definecolor{camouflagegreen}{rgb}{0.47, 0.53, 0.42}
+\definecolor{darkelectricblue}{rgb}{0.33, 0.41, 0.47}
+\definecolor{darkslategray}{rgb}{0.18, 0.31, 0.31}
+
+\newcommand{\cvsection}[2]{%
+	\bigskip
+	\noindent
+	\textcolor{arsenic}{\Large\scshape\rmfamily #1}~\textcolor{oraclecolor}{\hrulefill}\\[-1ex]\\
+	{\normalsize #2}\\
+	\noindent
+}
+\newcommand{\cvsectionwithouttext}[1]{%
+	\medskip
+	\noindent
+	\textbf{\textcolor{arsenic}{\Large\scshape\rmfamily #1}~\textcolor{oraclecolor}{\hrulefill}}\\[-1ex]
+	\noindent
+%	\smallskip
+}
+\newcommand{\cvsubsectionwithouttext}[1]{%
+	\medskip
+	\noindent
+	\textbf{\textcolor{arsenic}{\fontsize{12pt}{12pt}\ttfamily #1}}
+	\smallskip
+	\noindent
+}
+\newcommand{\cvevent}[4]{%
+	\noindent
+	{\fontsize{12pt}{12pt}\color{darkelectricblue}\bfseries\ttfamily#1\par}
+	\medskip
+	{\small\faCalendar \hspace{0.5em}#2\par} 
+	{\small\faMapPin\hspace{0.5em}#3\par}
+	\medskip
+	{\noindent\normalsize #4}\\	
+}
+\newcommand{\achievementevent}[3]{%
+	\noindent
+	{\fontsize{12pt}{12pt}\color{darkelectricblue}\bfseries\ttfamily#1}%\par}
+%	\smallskip
+	\hfill
+	{\small\faCalendar \hspace{0.5em}#2\par}
+	\smallskip
+	{\noindent\normalsize #3}\\	
+}
+\newcommand{\experienceevent}[3]{%
+	{\fontsize{12pt}{12pt}\color{darkelectricblue}\bfseries\ttfamily\noindent#1\par}
+	\medskip
+	{\small\faUniversity\hspace{0.5em}#3\par}
+	{\small\faCalendar \hspace{0.5em}#2\par}
+	\smallskip
+}
+
+\newcommand{\cvskill}[2]{%
+	#1\hfill
+	\foreach \x in {1,...,5}{%
+		\space{
+			\ifnumgreater{\x}{#2}{\textcolor{ashgrey}}{\color{darkelectricblue}}\faCircle
+		}
+	}\par%
+}
+\newcommand{\grantevent}[3]{%
+	\noindent
+	{\fontsize{12pt}{12pt}\color{darkelectricblue}\bfseries\ttfamily#1}%\par}
+%	\smallskip
+	\hfill
+	{\small\faCalendar \hspace{0.5em}#2\par}
+	{\noindent\normalsize #3}\\	
+}
+
+\newcommand{\refevent}[6]{%
+	{\fontsize{12pt}{12pt}\color{darkelectricblue}\bfseries\ttfamily\noindent#1\par}
+	\smallskip
+	%   \textbf{\color{accent}#2}\par
+	%   \smallskip
+	{\small{\faUniversity \hspace{0.5em}#2\par}
+		{\faMapPin\hspace{0.5em}#3}\par
+		{\faLink \hspace{0.5em}#4}\par
+		{\faEnvelope\hspace{0.5em}#5}\hfill{\faMobile\hspace{0.5em}#6}\par	
+	}
+	\medskip
+}
+\newcommand*{\scholarsocialsymbol}{\includegraphics[height=.7\baselineskip]{google-scholar}}
+
+\newcommand{\Author}{Leanne Nortje}
+\newcommand{\Profession}{Electronic Engineer}
+\newcommand{\Birthday}{28~June~1996}
+\newcommand{\IDNum}{000000~0000~000}
+\newcommand{\Email}{nortjeleanne@gmail.com}
+\newcommand{\CellNum}{+27~00~000~0000}
+\newcommand{\LinkedIn}{
+	\href{https://www.linkedin.com/in/leanne-nortje-85126b149/?originalSubdomain=za}{linkedin.com/LeanneNortje}
+}
+\newcommand{\GitHub}{
+	\href{https://github.com/LeanneNortje}{github.com/LeanneNortje}
+}
+\newcommand{\CurrentLocation}{Stellenbosch, South Africa}
+\newcommand{\GoogleScholar}{
+	\href{https://scholar.google.com/citations?hl=en&user=LpCOdkAAAAAJ}{scholar.google.com/LeanneNortje}
+}
+
+\begin{document}
+	
+	\pagenumbering{gobble}
+	
+	\begin{center}
+		\textbf{\textcolor{darkslategray}{\fontsize{22pt}{22pt}\selectfont \scshape \rmfamily \Author}} \\ \vspace{8pt}
+		\textcolor{darkelectricblue}{\large \faMortarBoard~~\Profession \quad $|$ 
+		\faBirthdayCake~~\Birthday \quad $|$ 
+		\faUser~~\IDNum \quad $|$ 
+		\faEnvelope~~\Email \quad $|$ 
+		\faMobile~~\CellNum \quad $|$ 
+		\faMapPin~~\CurrentLocation \quad $|$ 
+		\faLinkedin~~\LinkedIn \quad $|$ 
+		\faGithub~~\GitHub \quad $|$ 
+		\scholarsocialsymbol~~\GoogleScholar
+		}
+	\color{oraclecolor} \rule{\textwidth}{0.8pt}
+\end{center}
+%	\vspace{-10pt}
+	\cvsection{Career Objective}{
+		I am currently pursuing a PhD at Stellenbosch University funded by a DeepMind Scholarship.  
+		As a continuation of my masters, my PhD focuses on the combination of computer vision and speech processing for low-resource languages. 
+		Such low-resource models could be beneficial to build speech systems for low-resource languages which are not supported by mainstream speech technologies.
+		At the completion of my PhD degree (2023), I wish to apply the knowledge and skills I gained during my masters and PhD studies to produce valuable research in the field of low-resource languages.}
+	\vspace{-10pt}
+	\begin{multicols}{2}
+		\input{Education}
+		\input{Publications}
+		\input{Grants}
+		\input{Achievements}
+		\input{Experience}
+		\input{Skills}
+		\input{References}
+	\end{multicols}
+\end{document}
